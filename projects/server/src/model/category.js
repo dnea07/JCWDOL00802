@@ -2,14 +2,15 @@ const { Sequelize } = require("sequelize");
 const { dbSequelize } = require("../config/db");
 const { DataTypes } = Sequelize;
 
-const UserRoleModel = dbSequelize.define(
-  "user_roles",
+const CategoryModel = dbSequelize.define(
+  "categories",
   {
-    role: {
+    id_category: {
       type: DataTypes.INTEGER,
       primaryKey: true,
+      autoIncrement: true,
     },
-    description: {
+    category: {
       type: DataTypes.STRING,
     },
   },
@@ -18,4 +19,4 @@ const UserRoleModel = dbSequelize.define(
   }
 );
 
-module.exports = UserRoleModel;
+module.exports = CategoryModel;

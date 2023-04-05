@@ -2,40 +2,34 @@ const { Sequelize } = require("sequelize");
 const { dbSequelize } = require("../config/db");
 const { DataTypes } = Sequelize;
 
-const UserModel = dbSequelize.define(
-  "users",
+const WarehouseModel = dbSequelize.define(
+  "warehouses",
   {
-    id_user: {
+    id_warehouse: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    username: {
+    warehouse_branch_name: {
       type: DataTypes.STRING,
     },
-    email: {
-      type: DataTypes.STRING,
-    },
-    password: {
-      type: DataTypes.STRING,
-    },
-    status: {
+    postal_code: {
       type: DataTypes.INTEGER,
     },
-    role: {
-      type: DataTypes.INTEGER,
+    detail_address: {
+      type: DataTypes.STRING,
+    },
+    coordinate_lat: {
+      type: DataTypes.STRING,
+    },
+    coordinate_long: {
+      type: DataTypes.STRING,
     },
     phone_number: {
       type: DataTypes.STRING,
     },
-    profile_picture: {
-      type: DataTypes.STRING,
-    },
-    full_name: {
-      type: DataTypes.STRING,
-    },
-    subs: {
-      type: DataTypes.STRING,
+    status: {
+      type: DataTypes.INTEGER,
     },
   },
   {
@@ -43,4 +37,4 @@ const UserModel = dbSequelize.define(
   }
 );
 
-module.exports = UserModel;
+module.exports = WarehouseModel;

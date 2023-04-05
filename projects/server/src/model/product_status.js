@@ -2,10 +2,10 @@ const { Sequelize } = require("sequelize");
 const { dbSequelize } = require("../config/db");
 const { DataTypes } = Sequelize;
 
-const UserRoleModel = dbSequelize.define(
-  "user_roles",
+const ProductStatusModel = dbSequelize.define(
+  "product_statuses",
   {
-    role: {
+    status: {
       type: DataTypes.INTEGER,
       primaryKey: true,
     },
@@ -18,4 +18,4 @@ const UserRoleModel = dbSequelize.define(
   }
 );
 
-module.exports = UserRoleModel;
+module.exports = ProductStatusModel;

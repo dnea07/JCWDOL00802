@@ -18,6 +18,14 @@ import ResetPassword from "./pages/ResetPassword";
 import Profile from "./pages/UserProfile";
 import NotFound from "./pages/NotFound";
 
+import AdminProducts from "./pages/AdminProducts";
+import EditProduct from "./pages/EditProduct";
+import NewProduct from "./pages/NewProduct";
+import NewWarehouse from "./pages/NewWarehouse";
+import AdminWarehouse from "./pages/AdminWarehouse";
+import EditWarehouse from "./pages/EditWarehouse";
+import RequestStock from "./pages/RequestStock";
+
 function App() {
   // KODE DARI PURWADHIKA
   // const [message, setMessage] = useState("");
@@ -68,12 +76,29 @@ function App() {
       <Navbar />
       <Routes>
         <Route path="/" element={<Landing />} />
+        <Route path="*" element={<NotFound />} />
+
+        {/* HARUS TIDAK LOGIN */}
         <Route path="/login" element={<Login />} />
         <Route path="/regis" element={<Register />} />
         <Route path="/newuser" element={<NewUser />} />
+
+        {/* HARUS LOGIN */}
         <Route path="/resetPassword" element={<ResetPassword />} />
         <Route path="/profile" element={<Profile />} />
-        <Route path="*" element={<NotFound />} />
+
+        {/* HARUS MINIMAL ADMIN */}
+        <Route path="/admin/editwarehouse" element={<EditWarehouse />} />
+        <Route path="/admin/requeststock" element={<RequestStock />} />
+
+        {/* HARUS MINIMAL ADMIN (READ ONLY) */}
+        <Route path="/admin/products" element={<AdminProducts />} />
+        <Route path="/admin/editproduct" element={<EditProduct />} />
+
+        {/* HARUS SUPER ADMIN */}
+        <Route path="/admin/newproduct" element={<NewProduct />} />
+        <Route path="/admin/newwarehouse" element={<NewWarehouse />} />
+        <Route path="/admin/warehouse" element={<AdminWarehouse />} />
       </Routes>
       <Footer />
     </div>

@@ -17,7 +17,6 @@ module.exports = {
       res.status(500).send(error);
     }
   },
-
   regis: async (req, res) => {
     try {
       let { email } = req.body;
@@ -36,10 +35,8 @@ module.exports = {
           email,
         });
 
-        //kirim email
-
         let tokenEmail = cetakToken({ email });
-        //perlu tambahin id tp belom utk cetak token
+
         transporter.sendMail({
           from: "ClickNCollect",
           to: email,
@@ -64,7 +61,7 @@ module.exports = {
     try {
       let email = req.decript.email;
       let { password } = req.body;
-      //patch disini
+
       let newUser = await UserModel.update(
         { password: hashPassword(password), status: 2 },
         {
@@ -185,7 +182,6 @@ module.exports = {
     try {
       let email = req.decript.email;
       let { password } = req.body;
-      //patch disini
       let newUser = await UserModel.update(
         { password: hashPassword(password), status: 2 },
         {

@@ -2,16 +2,19 @@ const { Sequelize } = require("sequelize");
 const { dbSequelize } = require("../config/db");
 const { DataTypes } = Sequelize;
 
-const UserStatusModel = dbSequelize.define(
-  "user_statuses",
+const CategoryProductModel = dbSequelize.define(
+  "category_products",
   {
-    status: {
+    id_category_product: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    description: {
-      type: DataTypes.STRING,
+    id_product: {
+      type: DataTypes.INTEGER,
+    },
+    id_category: {
+      type: DataTypes.INTEGER,
     },
   },
   {
@@ -19,4 +22,4 @@ const UserStatusModel = dbSequelize.define(
   }
 );
 
-module.exports = UserStatusModel;
+module.exports = CategoryProductModel;

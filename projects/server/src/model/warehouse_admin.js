@@ -2,16 +2,19 @@ const { Sequelize } = require("sequelize");
 const { dbSequelize } = require("../config/db");
 const { DataTypes } = Sequelize;
 
-const UserStatusModel = dbSequelize.define(
-  "user_statuses",
+const WarehouseAdminModel = dbSequelize.define(
+  "warehouse_admins",
   {
-    status: {
+    id_warehouse_admin: {
       type: DataTypes.INTEGER,
       primaryKey: true,
       autoIncrement: true,
     },
-    description: {
-      type: DataTypes.STRING,
+    id_user: {
+      type: DataTypes.INTEGER,
+    },
+    id_warehouse: {
+      type: DataTypes.INTEGER,
     },
   },
   {
@@ -19,4 +22,4 @@ const UserStatusModel = dbSequelize.define(
   }
 );
 
-module.exports = UserStatusModel;
+module.exports = WarehouseAdminModel;
